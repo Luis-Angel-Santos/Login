@@ -21,6 +21,10 @@ function login(e){
 
        if (usuarioVal==objeto.user && passwordVal==objeto.pass) {
            crearmensaje('Usuario correcto', 'success');
+           localStorage.setItem('sesion','activa');
+           setTimeout(function(){
+               window.open('./inicio.html','_self');
+           },1000);
        }
        else{
            crearmensaje('usuairo incorrecto', 'danger');
