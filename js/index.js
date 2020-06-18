@@ -12,9 +12,22 @@ function login(e){
    let passwordVal=password.value;
 
    if (usuarioVal=='' || passwordVal=='') {
-       return;
+    crearmensaje('Verifica tus campos', 'danger');   
+    return;
    }
 
-   console.log('El valor para user es: ' +usuarioVal);
-   console.log('El valor para pass es: ' +passwordVal);
+   if (localStorage.getItem('usuario')) {
+       let objeto=JSON.parse(localStorage.getItem('usuario'));
+
+       if (usuarioVal==objeto.user && passwordVal==objeto.pass) {
+           crearmensaje('Usuario correcto', 'success');
+       }
+       else{
+           crearmensaje('usuairo incorrecto', 'danger');
+       }
+   }
+   else{
+       crearmensaje('No existe el usuario', 'danger');
+   }
+
 }
