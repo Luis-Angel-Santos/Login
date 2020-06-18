@@ -18,5 +18,17 @@ function registro(e){
        return;
    }
 
-   console.log('validando datos');
+   const usuario={
+       nombre: nombreval,
+       email: emailval,
+       user: userval,
+       pass: passval
+   }
+
+   localStorage.setItem('usuario', JSON.stringify(usuario));
+
+   email.value='';
+   nombre.value='';
+   user.value='';
+   pass.value='';
 }
